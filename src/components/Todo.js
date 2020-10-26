@@ -6,8 +6,13 @@ const Todo = (props) => {
   };
 
   return (
-    <div onClick={handleClick}>
-      <p>{props.item.task}</p>
+    <div className="maindiv">
+      <div
+        onClick={handleClick}
+        className={`todo${props.item.completed ? "completed" : ""}`}
+      >
+        <p className="todos">{props.item.task}</p>
+      </div>
     </div>
   );
 };

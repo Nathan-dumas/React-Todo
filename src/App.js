@@ -1,7 +1,7 @@
 import React from "react";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
-
+import "./components/Todo.css"
 const todos = [
   {
     task: "Water the plants",
@@ -58,8 +58,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Todo List</h1>
+      <div className="app" >
+        <h1 className="title">Todo List</h1>
         <TodoForm addItem={this.addItem} />
         <TodoList 
           removeItem={this.removeItem}
