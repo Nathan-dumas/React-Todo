@@ -1,5 +1,4 @@
 import React from "react";
-import Todo from "./components/Todo";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
 
@@ -42,11 +41,31 @@ class App extends React.Component {
     });
   };
 
+  toggleItem = (itemId) => {
+    this.setState({
+      todos: this.state.todos.map((item) => {
+        if (item.id === itemId) {
+          return {
+            ...item,
+            completed: !item.completed,
+          };
+        } else {
+          return item;
+        }
+      }),
+    });
+  };
+
   render() {
     return (
       <div>
         <h1>Todo List</h1>
-        <TodoForm />
+        <TodoForm addItem={this.addItem} />
+        <TodoList 
+          removeItem={this.removeItem}
+          toggleItem={this.toggleItem}
+          todos={this.state.todos}
+        />
       </div>
     );
   }
